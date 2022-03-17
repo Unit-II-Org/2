@@ -1,0 +1,72 @@
+{
+  "name": "organization-workflows-github-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Need to centrally manage and run Actions workflows across multiple repositories? This app does it for you.",
+  "author": "Sebass van Boxel <hello@svboxel.com>",
+  "license": "ISC",
+  "repository": "https://github.com/SvanBoxel/central-workflows-bot.git",
+  "homepage": "https://github.com/SvanBoxel/central-workflows-bot",
+  "bugs": "https://github.com/SvanBoxel/central-workflows-bot/issues",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc && (tsc -w --preserveWatchOutput & nodemon)",
+    "dev": "npm run build:watch",
+    "start": "probot run ./lib/index.js",
+    "lint": "eslint src/**/*.ts --fix",
+    "test": "jest && npm run lint",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage"
+  },
+  "dependencies": {
+    "lodash.pick": "^4.4.0",
+    "mongoose": "^5.11.8",
+    "node-fetch": "^2.6.1",
+    "probot": "^11.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.0",
+    "@types/lodash.pick": "^4.4.6",
+    "@types/nock": "^11.1.0",
+    "@types/node": "^13.1.0",
+    "@types/node-fetch": "^2.5.8",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.16.0",
+    "jest": "26.6.3",
+    "mockingoose": "^2.13.2",
+    "nock": "^12.0.0",
+    "nodemon": "^2.0.0",
+    "smee-client": "^1.1.0",
+    "standard": "^14.3.1",
+    "ts-jest": "26.4.4",
+    "typescript": "^3.9.7"
+  },
+  "engines": {
+    "node": ">= 12.x"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2015,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
